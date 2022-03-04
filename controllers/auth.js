@@ -51,7 +51,7 @@ module.exports.verificationForm = (req,res) => {
 
 module.exports.verification = (req,res) => {
     const { email } = req.body;
-    const API_KEY = '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';
+    const API_KEY = process.env.sendgrid_APIKEY;
 
     sgMail.setApiKey(API_KEY);
 
