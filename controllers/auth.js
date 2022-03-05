@@ -1,6 +1,8 @@
 const User = require('../models/user');
 const sgMail = require('@sendgrid/mail');
-const { password } = require('../middlewares')
+const { password } = require('../middlewares');
+const dotenv = require('dotenv');
+dotenv.config();
 
 module.exports.registerForm = (req,res) => {
     res.render('./auth/signup');
@@ -54,6 +56,7 @@ module.exports.verification = (req,res) => {
     const API_KEY = process.env.sendgrid_APIKEY;
 
     sgMail.setApiKey(API_KEY);
+
 
     const sentPassword = password();
 
